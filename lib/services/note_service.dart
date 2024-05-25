@@ -1,6 +1,8 @@
-import 'dart:io';
+import 'dart:io' as io;
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:notes/models/note.dart';
 import 'package:path/path.dart' as path;
 
@@ -10,11 +12,11 @@ class NoteService {
       _database.collection('notes');
   static final FirebaseStorage _storage = FirebaseStorage.instance;
 
-// TODO 1: Tambah Data
+  //Tambah Data
   static Future<void> addNote(Note note) async {
     Map<String, dynamic> newNote = {
       'title': note.title,
-      'descriotion': note.description,
+      'description': note.description,
       'image_url': note.imageUrl,
       'created_at': FieldValue.serverTimestamp(),
       'updated_at': FieldValue.serverTimestamp(),
@@ -22,7 +24,7 @@ class NoteService {
     await _notesCollection.add(newNote);
   }
 
-// TODO 2: Menampilkan Data
+  //Menampilkan data
   static Stream<List<Note>> getNoteList() {
     return _notesCollection.snapshots().map((snapshot) {
       return snapshot.docs.map((doc) {
@@ -43,29 +45,34 @@ class NoteService {
     });
   }
 
-// TODO 3: Ubah Data
+  //Ubah data
   static Future<void> updateNote(Note note) async {
     Map<String, dynamic> updatedNote = {
       'title': note.title,
       'description': note.description,
       'image_url': note.imageUrl,
       'created_at': note.createdAt,
-      'update_at': FieldValue.serverTimestamp(),
+      'updated_at': FieldValue.serverTimestamp(),
     };
     await _notesCollection.doc(note.id).update(updatedNote);
   }
 
-// TODO 4: Hapus Data
+  //hapus data
   static Future<void> deleteNote(Note note) async {
     await _notesCollection.doc(note.id).delete();
   }
 
-// TODO 5: Upload Image
-  static Future<String?> uploadImage(File imageFile) async {
+  //upload image
+  static Future<String?> uploadImage(XFile imageFile) async {
     try {
       String fileName = path.basename(imageFile.path);
       Reference ref = _storage.ref().child('image/$fileName');
-      UploadTask uploadTask = ref.putFile(imageFile);
+      UploadTask uploadTask;
+      if (kIsWeb) {
+        uploadTask = ref.putData(await imageFile.readAsBytes());
+      } else {
+        uploadTask = ref.putFile(io.File(imageFile.path));
+      }
       TaskSnapshot taskSnapshot = await uploadTask;
       String downloadUrl = await taskSnapshot.ref.getDownloadURL();
       return downloadUrl;

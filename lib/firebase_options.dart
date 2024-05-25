@@ -44,38 +44,38 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAwV6IvHk9X146RpWY7LRKpg21_LyL-o14',
-    appId: '1:920845208751:web:7b0a5e4f9b24f16425185a',
-    messagingSenderId: '920845208751',
-    projectId: 'notes-app-66140',
-    authDomain: 'notes-app-66140.firebaseapp.com',
-    storageBucket: 'notes-app-66140.appspot.com',
-    measurementId: 'G-Z8WB3CFYW0',
+    apiKey: 'AIzaSyAuCIMPwd_VbkkkYn9lFm_KroQBbAIvF-8',
+    appId: '1:744126678858:web:cb187d3679e48c1bf563b3',
+    messagingSenderId: '744126678858',
+    projectId: 'notess-app-21fee',
+    authDomain: 'notess-app-21fee.firebaseapp.com',
+    storageBucket: 'notess-app-21fee.appspot.com',
+    measurementId: 'G-CPMCS9PM8C',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCk_sxgsmGSR7F09glim5_eZsGmVzHiyNE',
-    appId: '1:920845208751:android:2c8b3b606ef3f3d425185a',
-    messagingSenderId: '920845208751',
-    projectId: 'notes-app-66140',
-    storageBucket: 'notes-app-66140.appspot.com',
+    apiKey: 'AIzaSyDPYc-TdlPOcHWtxGjVzmXE0b1d87-V1zY',
+    appId: '1:744126678858:android:64e64b8f5bcba998f563b3',
+    messagingSenderId: '744126678858',
+    projectId: 'notess-app-21fee',
+    storageBucket: 'notess-app-21fee.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyC_mo7DEcUAx-U-povXiws8SkJy9LgeqO4',
-    appId: '1:920845208751:ios:e96f2e310fdea58a25185a',
-    messagingSenderId: '920845208751',
-    projectId: 'notes-app-66140',
-    storageBucket: 'notes-app-66140.appspot.com',
+    apiKey: 'AIzaSyDGNP6KEVgemIGCSLXZ5lr97Bhlk-LlUX4',
+    appId: '1:744126678858:ios:3dc9d860fa1b581cf563b3',
+    messagingSenderId: '744126678858',
+    projectId: 'notess-app-21fee',
+    storageBucket: 'notess-app-21fee.appspot.com',
     iosBundleId: 'com.example.notes',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyC_mo7DEcUAx-U-povXiws8SkJy9LgeqO4',
-    appId: '1:920845208751:ios:fd28f4093876865b25185a',
-    messagingSenderId: '920845208751',
-    projectId: 'notes-app-66140',
-    storageBucket: 'notes-app-66140.appspot.com',
+    apiKey: 'AIzaSyDGNP6KEVgemIGCSLXZ5lr97Bhlk-LlUX4',
+    appId: '1:744126678858:ios:12995b3af72c15faf563b3',
+    messagingSenderId: '744126678858',
+    projectId: 'notess-app-21fee',
+    storageBucket: 'notess-app-21fee.appspot.com',
     iosBundleId: 'com.example.notes.RunnerTests',
   );
 }
